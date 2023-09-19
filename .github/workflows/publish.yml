@@ -18,6 +18,8 @@ jobs:
         with:
           python-version: 3.11
       - name: Publish to pypi
-        run: poetry publish --build
-        # env:
-        #   POETRY_PYPI_TOKEN_PYPI: "${{ secrets.PYPI_TOKEN }}"
+        run: poetry build
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
