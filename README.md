@@ -1,6 +1,6 @@
 # strawberry-django-phonenumber
 
-![python package](https://github.com/UpliftAgency/strawberry-django-phonebumber/actions/workflows/pythonpackage.yml/badge.svg)
+![build status](https://github.com/UpliftAgency/strawberry-django-phonenumber/actions/workflows/pythonpackage.yml/badge.svg)
 
 ## Introduction
 
