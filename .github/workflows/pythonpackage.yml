@@ -106,8 +106,12 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
-      - run: |
+      - name: Install dependencies
+        if: steps.cache-poetry.outputs.cache-hit != 'true'
+        run: |
           poetry install
+      - run: |
+          poetry run black --check .
 
   isort:
     runs-on: ubuntu-latest
@@ -130,6 +134,10 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
+      - name: Install dependencies
+        if: steps.cache-poetry.outputs.cache-hit != 'true'
+        run: |
+          poetry install
       - run: |
           poetry run isort --check-only strawberry_django_phonenumber tests test_app
 
@@ -154,6 +162,10 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
+      - name: Install dependencies
+        if: steps.cache-poetry.outputs.cache-hit != 'true'
+        run: |
+          poetry install
       - run: |
           poetry run flake8 strawberry_django_phonenumber/ tests/ test_app/
 
@@ -178,6 +190,10 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
+      - name: Install dependencies
+        if: steps.cache-poetry.outputs.cache-hit != 'true'
+        run: |
+          poetry install
       - run: |
-          poetry run safety check -i 51457
+          poetry run safety check
           poetry run bandit -r strawberry_django_phonenumber/ test_app/
