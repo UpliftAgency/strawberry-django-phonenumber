@@ -1,3 +1,4 @@
+import contextlib
 from unittest import mock
 
 import pytest
@@ -38,18 +39,58 @@ async def user2():
 
 
 # This is a temporary fix
-# See https://github.com/pytest-dev/pytest-asyncio/issues/226#issuecomment-1574929086
+# See https://github.com/pytest-dev/pytest-asyncio/issues/226#issuecomment-2225156564
 @pytest.fixture(autouse=True)
-def fix_async_db():
-    local = connections._connections
-    ctx = local._get_context_id()
+def fix_async_db(request):
+    """
+    If you don't use this fixture for async tests that use the ORM/database
+    you won't get proper teardown of the database.
+    This is a bug somehwere in pytest-django, pytest-asyncio or django itself.
+
+    Nobody knows how to solve it, or who should solve it.
+    Workaround here: https://github.com/django/channels/issues/1091#issuecomment-701361358
+    More info:
+    https://github.com/pytest-dev/pytest-django/issues/580
+    https://code.djangoproject.com/ticket/32409
+    https://github.com/pytest-dev/pytest-asyncio/issues/226
+
+
+    The actual implementation of this workaround constists on ensuring
+    Django always returns the same database connection independently of the thread
+    the code that requests a db connection is in.
+
+    We were unable to use better patching methods (the target is asgiref/local.py),
+    so we resorted to mocking the _lock_storage context manager so that it returns a Mock.
+    That mock contains the default connection of the main thread (instead of the connection
+    of the running thread).
+
+    This only works because our tests only ever use the default connection, which is the only
+    thing our mock returns.
+
+    We apologize in advance for the shitty implementation.
+    """
+    if (
+        request.node.get_closest_marker("asyncio") is None
+        or request.node.get_closest_marker("django_db") is None
+    ):
+        # Only run for async tests that use the database
+        yield
+        return
+
+    main_thread_local = connections._connections
     for conn in connections.all():
         conn.inc_thread_sharing()
-    conn = connections.all()[0]
-    old = local._get_context_id
+
+    main_thread_default_conn = main_thread_local._storage.default
+    main_thread_storage = main_thread_local._lock_storage
+
+    @contextlib.contextmanager
+    def _lock_storage():
+        yield mock.Mock(default=main_thread_default_conn)
+
     try:
-        with mock.patch.object(conn, "close"):
-            object.__setattr__(local, "_get_context_id", lambda: ctx)
+        with mock.patch.object(main_thread_default_conn, "close"):
+            object.__setattr__(main_thread_local, "_lock_storage", _lock_storage)
             yield
     finally:
-        object.__setattr__(local, "_get_context_id", old)
+        object.__setattr__(main_thread_local, "_lock_storage", main_thread_storage)

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "strawberry-django-phonenumber"
-version = "0.1.0"
+version = "0.2.0"
 description = "A strawberry + Django integration for phone numbers"
 authors = ["Paul Craciunoiu <paul@craciunoiu.net>"]
 readme = "README.md"
@@ -10,12 +10,13 @@ keywords = ["strawberry", "django", "phonenumber", "phone", "number", "phonenumb
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.10,<4"
 django = ">=3"
 django-phonenumber-field = {extras = ["phonenumberslite"], version = ">=7"}
-psycopg2-binary = "*"
 strawberry-graphql = {extras = ["debug-server"], version = "*"}
 strawberry-graphql-django = ">=0.17"
+psycopg2-binary = {version = "*", optional = true}
+psycopg = { extras = ["binary"], version = ">=3", optional = true }
 
 [tool.poetry.dev-dependencies]
 autoflake = "*"
@@ -29,6 +30,10 @@ flake8 = "*"
 isort = "*"
 safety = "*"
 ssort = "*"
+
+[tool.poetry.extras]
+psycopg2 = ["psycopg2-binary"]
+psycopg = ["psycopg"]
 
 [build-system]
 requires = ["poetry-core"]

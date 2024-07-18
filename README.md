@@ -123,6 +123,10 @@ pip install strawberry-django-phonenumber
 
 ### Changelog
 
+**0.2.0**
+
+    - Remove psycopg2-binary dependency, allow psycopg>=3
+
 **0.1.0**
 
     - Initial release
