@@ -33,7 +33,7 @@ jobs:
         id: cache-poetry
         name: Cache venv based on the dependencies lock file
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: ./.venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
 
   pytest:
     runs-on: ubuntu-latest
@@ -74,14 +74,14 @@ jobs:
       - name: Restore dependencies
         uses: actions/cache@main
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
       - run: |
           poetry run pytest --cache-clear
 
@@ -102,14 +102,14 @@ jobs:
       - name: Restore dependencies
         uses: actions/cache@main
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
       - run: |
           poetry run black --check .
 
@@ -130,14 +130,14 @@ jobs:
       - name: Restore dependencies
         uses: actions/cache@main
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
       - run: |
           poetry run isort --check-only strawberry_django_phonenumber tests test_app
 
@@ -158,14 +158,14 @@ jobs:
       - name: Restore dependencies
         uses: actions/cache@main
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
       - run: |
           poetry run flake8 strawberry_django_phonenumber/ tests/ test_app/
 
@@ -186,7 +186,7 @@ jobs:
       - name: Restore dependencies
         uses: actions/cache@main
         env:
-          cache-name: cache-poetry
+          cache-name: cache-poetry-v3
         with:
           path: .venv
           key: ${{ runner.os }}-py${{ matrix.python-version }}-${{ env.cache-name }}-${{ hashFiles('poetry.lock') }}
