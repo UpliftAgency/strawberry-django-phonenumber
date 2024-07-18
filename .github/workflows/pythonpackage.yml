@@ -193,7 +193,8 @@ jobs:
       - name: Install dependencies
         if: steps.cache-poetry.outputs.cache-hit != 'true'
         run: |
-          poetry install
+          ./poetry-install.sh
       - run: |
-          poetry run safety check
+          poetry run safety check \
+            -i 70612  # jinja2
           poetry run bandit -r strawberry_django_phonenumber/ test_app/

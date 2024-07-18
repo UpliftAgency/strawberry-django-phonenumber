@@ -1,4 +1,5 @@
 """Phone number GraphQL type."""
+
 from typing import Optional
 
 import strawberry
