@@ -1,16 +1,41 @@
+# Dependabot version updates for Poetry (pyproject.toml + poetry.lock).
+#
+# Security update PRs also require org/repo settings: Dependabot alerts + Dependabot security updates.
+# Version checks run on this schedule only (there is no supported “on every push to main” hook).
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
+
 version: 2
 updates:
   - package-ecosystem: pip
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 10
-    allow:
-      - dependency-type: direct
-      - dependency-type: indirect
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 6
+    labels:
+      - dependencies
+    commit-message:
+      prefix: deps
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 10
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 6
+    labels:
+      - dependencies
+    commit-message:
+      prefix: deps
