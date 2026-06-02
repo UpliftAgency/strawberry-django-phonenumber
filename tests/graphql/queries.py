@@ -18,13 +18,10 @@ fragment UserProfileFields on User {
 """
 
 
-GET_USER_WITH_PHONE_NUMBER = (
-    """
+GET_USER_WITH_PHONE_NUMBER = """
   query MeWithFields {
     me {
       ...UserProfileFields
     }
   }
-"""
-    + USER_PROFILE_FIELDS
-)
+""" + USER_PROFILE_FIELDS

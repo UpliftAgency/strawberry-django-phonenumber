@@ -28,7 +28,7 @@ pytest-django = "*"
 pytest-flakes = "*"
 flake8 = "*"
 isort = "*"
-safety = "*"
+pip-audit = "*"
 ssort = "*"
 
 [tool.poetry.extras]
