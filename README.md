@@ -8,10 +8,12 @@ GraphQL types for Phone Numbers with Strawberry Django. If you use `django`, `st
 
 Supported on:
 
-* Python 3.9+ (likely earlier versions too, needs tested)
+* Python 3.10+
 * Django 3+
 * strawberry-graphql-django 0.17+
 * django-phonenumber-field 7+
+
+CI runs on Python 3.14.
 
 Here's how it works. Automagically get this query:
 
@@ -138,10 +140,19 @@ pip install strawberry-django-phonenumber
 
 ## Contributing
 
-Running tests:
+Install dependencies and run tests (requires PostgreSQL; CI uses `postgres` / `postgres` on port 5432):
 
 ```bash
+./poetry-install.sh
+export PG_PASSWORD=postgres
 poetry run pytest
 ```
 
-That's it, lite process for now. Please open a pull request or issue.
+Linting and security checks match CI:
+
+```bash
+./lint.sh
+poetry run pip-audit
+```
+
+Please open a pull request or issue.
