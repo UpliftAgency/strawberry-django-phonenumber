@@ -124,11 +124,12 @@ pip install strawberry-django-phonenumber
 
 ### Changelog
 
-**Unreleased**
+**0.2.2**
 
-    - Replace Safety with pip-audit; refresh lockfile and CI tooling
-    - CI: Python 3.10 and 3.14; consolidated lint job; Dependabot and pre-commit
-    - Docs: `graphql_ide` instead of deprecated `graphiql` on `AsyncGraphQLView`
+    - Replace Safety with pip-audit; refresh lockfile and dependency versions
+    - CI tests Python 3.10 and 3.14; consolidated lint job; updated GitHub Actions
+    - Dependabot with grouped minor/patch updates; optional pre-commit hook
+    - Docs: Python 3.10+; `graphql_ide` instead of deprecated `graphiql` on `AsyncGraphQLView`
 
 **0.2.1**
 
