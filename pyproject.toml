@@ -18,18 +18,17 @@ strawberry-graphql-django = ">=0.17"
 psycopg2-binary = {version = "*", optional = true}
 psycopg = { extras = ["binary"], version = ">=3", optional = true }
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 autoflake = "*"
 bandit = "*"
 black = "*"
 pytest = "*"
-pytest-asyncio = "*"
 pytest-django = "*"
-pytest-flakes = "*"
 flake8 = "*"
 isort = "*"
-safety = "*"
+pip-audit = "*"
 ssort = "*"
+pre-commit = "*"
 
 [tool.poetry.extras]
 psycopg2 = ["psycopg2-binary"]
