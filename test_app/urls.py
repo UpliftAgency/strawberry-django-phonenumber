@@ -10,7 +10,7 @@ urlpatterns = [
         csrf_exempt(
             AsyncGraphQLView.as_view(
                 schema=schema,
-                graphiql=True,
+                graphql_ide="graphiql",
             )
         ),
     ),
