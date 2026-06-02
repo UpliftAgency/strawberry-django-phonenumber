@@ -123,6 +123,10 @@ pip install strawberry-django-phonenumber
 
 ### Changelog
 
+**0.2.1**
+
+    - Remove deprecated strawberry-graphql debug-server extra
+
 **0.2.0**
 
     - Remove psycopg2-binary dependency, allow psycopg>=3
