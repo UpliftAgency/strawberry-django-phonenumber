@@ -13,7 +13,7 @@ Supported on:
 * strawberry-graphql-django 0.17+
 * django-phonenumber-field 7+
 
-CI runs on Python 3.14.
+CI tests Python **3.10** (minimum supported) and **3.14** (latest).
 
 Here's how it works. Automagically get this query:
 
@@ -58,8 +58,7 @@ from strawberry_django_phonenumber import PhoneNumber
 from yourapp import models
 
 
-
-@strawberry_django.type(models.User)
+@strawberry_django.type(models.User, fields=["first_name", "last_name"])
 class User(strawberry.relay.Node):
     """GraphQL type for the User model."""
 
@@ -82,7 +81,7 @@ from .types import User
 
 @sync_to_async
 def aget_user_from_request(request):
-    return request.user if bool(request.user) else None
+    return request.user if request.user.is_authenticated else None
 
 
 @strawberry.type
@@ -125,6 +124,12 @@ pip install strawberry-django-phonenumber
 
 ### Changelog
 
+**Unreleased**
+
+    - Replace Safety with pip-audit; refresh lockfile and CI tooling
+    - CI: Python 3.10 and 3.14; consolidated lint job; Dependabot and pre-commit
+    - Docs: `graphql_ide` instead of deprecated `graphiql` on `AsyncGraphQLView`
+
 **0.2.1**
 
     - Remove deprecated strawberry-graphql debug-server extra
@@ -148,11 +153,22 @@ export PG_PASSWORD=postgres
 poetry run pytest
 ```
 
-Linting and security checks match CI:
+Lint and security checks (same as CI):
+
+```bash
+./lint.sh --check
+```
+
+Format/fix locally:
 
 ```bash
 ./lint.sh
-poetry run pip-audit
+```
+
+Optional [pre-commit](https://pre-commit.com/) hook (runs `./lint.sh --check`):
+
+```bash
+poetry run pre-commit install
 ```
 
 Please open a pull request or issue.

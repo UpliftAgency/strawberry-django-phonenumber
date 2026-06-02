@@ -1,7 +1,7 @@
+import json
 from typing import Optional
 
 import pytest
-from asgiref.sync import sync_to_async
 from django.contrib.auth import get_user_model
 from django.test import Client
 from strawberry.relay import to_base64
@@ -11,41 +11,34 @@ from .queries import GET_USER_WITH_PHONE_NUMBER
 User = get_user_model()
 
 
-@pytest.mark.asyncio
 @pytest.mark.django_db
 class TestUsers:
-    async def login(self, user, async_client: Client):
-        await sync_to_async(async_client.force_login)(user)
-
-    async def send_and_get_data(
+    def send_and_get_data(
         self,
-        async_client: Client,
+        client: Client,
         query: str,
-        variables: dict = None,
+        variables: dict | None = None,
         login_user: Optional[User] = None,
-        request_kwargs: Optional[dict] = None,
     ) -> dict:
-        payload = dict(query=query, variables=variables)
-        request_kwargs = request_kwargs or dict()
-        if login_user:
-            await self.login(login_user, async_client)
+        payload = {"query": query, "variables": variables}
+        if login_user is not None:
+            client.force_login(login_user)
 
-            response = await async_client.post(
-                "/graphql/", payload, content_type="application/json", **request_kwargs
-            )
+        response = client.post(
+            "/graphql/",
+            data=json.dumps(payload),
+            content_type="application/json",
+        )
+        return response.json()
 
-        response = response.json()
-
-        return response
-
-    async def test_get_authenticated(self, async_client, user1, user2):
-        response = await self.send_and_get_data(
-            async_client,
+    def test_get_authenticated(self, client, user1, user2):
+        response = self.send_and_get_data(
+            client,
             query=GET_USER_WITH_PHONE_NUMBER,
             login_user=user1,
         )
         result = response["data"]
-        assert "errors" not in result, result["errors"]
+        assert "errors" not in result, result.get("errors")
         assert "me" in result
 
         assert dict(result["me"]) == dict(
