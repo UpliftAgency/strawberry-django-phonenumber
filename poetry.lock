@@ -814,14 +814,14 @@ pip = "*"
 
 [[package]]
 name = "pip-audit"
-version = "2.10.0"
+version = "2.10.1"
 description = "A tool for scanning Python environments for known vulnerabilities"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pip_audit-2.10.0-py3-none-any.whl", hash = "sha256:16e02093872fac97580303f0848fa3ad64f7ecf600736ea7835a2b24de49613f"},
-    {file = "pip_audit-2.10.0.tar.gz", hash = "sha256:427ea5bf61d1d06b98b1ae29b7feacc00288a2eced52c9c58ceed5253ef6c2a4"},
+    {file = "pip_audit-2.10.1-py3-none-any.whl", hash = "sha256:99ef3f600a317c1945f1e89e227ef26e1c2d618429b8bd3fa6f4f7c440c4611a"},
+    {file = "pip_audit-2.10.1.tar.gz", hash = "sha256:1eb4565d19ebe5d48996f4b770b4d2b32887e12cb12cfa637f1a064011b55ffc"},
 ]
 
 [package.dependencies]
@@ -840,7 +840,7 @@ tomli-w = ">=1.2.0"
 cov = ["coverage[toml] (>=7.0,!=7.3.3,<8.0)"]
 dev = ["build", "pip-audit[doc,lint,test]"]
 doc = ["pdoc"]
-lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.11)", "types-requests", "types-toml"]
+lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.14)", "types-requests", "types-toml", "typos"]
 test = ["pip-audit[cov]", "pretend", "pytest"]
 
 [[package]]
@@ -1151,14 +1151,14 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "9.0.3"
+version = "9.1.0"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9"},
-    {file = "pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c"},
+    {file = "pytest-9.1.0-py3-none-any.whl", hash = "sha256:8ebb0e7888bdf2bdfc602ec51f8f62d50200af37356c74e503c79a94f5c81f32"},
+    {file = "pytest-9.1.0.tar.gz", hash = "sha256:41dd9148c08072446394cefd3d79701701335a9f4cae69ba92e39f6c7f5c061c"},
 ]
 
 [package.dependencies]
@@ -1508,14 +1508,14 @@ sanic = ["sanic (>=20.12.2)"]
 
 [[package]]
 name = "strawberry-graphql-django"
-version = "0.86.0"
+version = "0.86.1"
 description = "Strawberry GraphQL Django extension"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "strawberry_graphql_django-0.86.0-py3-none-any.whl", hash = "sha256:5d5771fd6227d48aa9d94e72e9d7ab5a995e64bd970f2d17123563869b4b02cc"},
-    {file = "strawberry_graphql_django-0.86.0.tar.gz", hash = "sha256:380326ab2f9a9bf79a66ca7fad8a1c2fe72760f3608d3b39b617213c8b3f3329"},
+    {file = "strawberry_graphql_django-0.86.1-py3-none-any.whl", hash = "sha256:b6091b2c36ea230c354926148bdd75ea3685d467856b6842954692252af6a18e"},
+    {file = "strawberry_graphql_django-0.86.1.tar.gz", hash = "sha256:2b15e87b57162e4a214e6bcc55baebadfe58b1efb65bccd5f5eead933416a99a"},
 ]
 
 [package.dependencies]
