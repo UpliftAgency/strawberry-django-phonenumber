@@ -429,14 +429,14 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-phonenumber-field"
-version = "8.4.0"
+version = "8.5.0"
 description = "An international phone number field for django models."
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "django_phonenumber_field-8.4.0-py3-none-any.whl", hash = "sha256:7a1cb3a6456edb54d879f11ffa0acb227ded08c93b587035d0f28093f0e46511"},
-    {file = "django_phonenumber_field-8.4.0.tar.gz", hash = "sha256:2b83e843dac35eec6a69880a166487235b737a71a1e38c9a52e5ad67d6996083"},
+    {file = "django_phonenumber_field-8.5.0-py3-none-any.whl", hash = "sha256:a6dd71250f7fd0724aad995df01bdb4ac457a65622f120d0d623792fe8283798"},
+    {file = "django_phonenumber_field-8.5.0.tar.gz", hash = "sha256:19c606fda7bb25630c4913f7ac83c1824186ea17e2e4c6dc9aa9373e8f5843c5"},
 ]
 
 [package.dependencies]
@@ -444,6 +444,7 @@ Django = ">=4.2"
 phonenumberslite = {version = ">=7.0.2", optional = true, markers = "extra == \"phonenumberslite\""}
 
 [package.extras]
+babel = ["Babel"]
 phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
@@ -814,14 +815,14 @@ pip = "*"
 
 [[package]]
 name = "pip-audit"
-version = "2.10.0"
+version = "2.10.1"
 description = "A tool for scanning Python environments for known vulnerabilities"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pip_audit-2.10.0-py3-none-any.whl", hash = "sha256:16e02093872fac97580303f0848fa3ad64f7ecf600736ea7835a2b24de49613f"},
-    {file = "pip_audit-2.10.0.tar.gz", hash = "sha256:427ea5bf61d1d06b98b1ae29b7feacc00288a2eced52c9c58ceed5253ef6c2a4"},
+    {file = "pip_audit-2.10.1-py3-none-any.whl", hash = "sha256:99ef3f600a317c1945f1e89e227ef26e1c2d618429b8bd3fa6f4f7c440c4611a"},
+    {file = "pip_audit-2.10.1.tar.gz", hash = "sha256:1eb4565d19ebe5d48996f4b770b4d2b32887e12cb12cfa637f1a064011b55ffc"},
 ]
 
 [package.dependencies]
@@ -840,7 +841,7 @@ tomli-w = ">=1.2.0"
 cov = ["coverage[toml] (>=7.0,!=7.3.3,<8.0)"]
 dev = ["build", "pip-audit[doc,lint,test]"]
 doc = ["pdoc"]
-lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.11)", "types-requests", "types-toml"]
+lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.14)", "types-requests", "types-toml", "typos"]
 test = ["pip-audit[cov]", "pretend", "pytest"]
 
 [[package]]
@@ -893,14 +894,14 @@ testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pre-commit"
-version = "4.6.0"
+version = "4.6.1"
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pre_commit-4.6.0-py2.py3-none-any.whl", hash = "sha256:e2cf246f7299edcabcf15f9b0571fdce06058527f0a06535068a86d38089f29b"},
-    {file = "pre_commit-4.6.0.tar.gz", hash = "sha256:718d2208cef53fdc38206e40524a6d4d9576d103eb16f0fec11c875e7716e9d9"},
+    {file = "pre_commit-4.6.1-py2.py3-none-any.whl", hash = "sha256:0e3b2942510d1fb34eec167a3ec57331bf8442122f1153a9fb8b58f5c49b2717"},
+    {file = "pre_commit-4.6.1.tar.gz", hash = "sha256:03e809865c7d178b9979d06c761fcbfe6808fdaded8581a745bb110e52050421"},
 ]
 
 [package.dependencies]
@@ -1151,14 +1152,14 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "9.0.3"
+version = "9.1.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9"},
-    {file = "pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c"},
+    {file = "pytest-9.1.1-py3-none-any.whl", hash = "sha256:37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"},
+    {file = "pytest-9.1.1.tar.gz", hash = "sha256:1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"},
 ]
 
 [package.dependencies]
@@ -1471,14 +1472,14 @@ files = [
 
 [[package]]
 name = "strawberry-graphql"
-version = "0.316.0"
+version = "0.323.2"
 description = "A library for creating GraphQL APIs"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "strawberry_graphql-0.316.0-py3-none-any.whl", hash = "sha256:222e16fbbf953f5a1fa75f62bf9a8e95f274180f928f70bec459b566053aa2cb"},
-    {file = "strawberry_graphql-0.316.0.tar.gz", hash = "sha256:bee5ce0e20d522325bd1ed2db186c812c03c2ea7db29f997b35e7d694649820c"},
+    {file = "strawberry_graphql-0.323.2-py3-none-any.whl", hash = "sha256:870d00880d9caef454f4364af1c4e5808b1c180d6fef2c0d32de1d095f1b53b2"},
+    {file = "strawberry_graphql-0.323.2.tar.gz", hash = "sha256:e3ba1f24596fc5e943a13dc75c8d071befc7c9f471c3b1a5def39ecb483a2f62"},
 ]
 
 [package.dependencies]
@@ -1486,7 +1487,7 @@ cross-web = ">=0.6.0"
 graphql-core = ">=3.2.0,<3.4.0"
 packaging = ">=23"
 python-dateutil = ">=2.7"
-typing-extensions = ">=4.5.0"
+typing-extensions = ">=4.14.0"
 
 [package.extras]
 aiohttp = ["aiohttp (>=3.7.4.post0,<4)"]
@@ -1508,14 +1509,14 @@ sanic = ["sanic (>=20.12.2)"]
 
 [[package]]
 name = "strawberry-graphql-django"
-version = "0.86.0"
+version = "0.86.5"
 description = "Strawberry GraphQL Django extension"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "strawberry_graphql_django-0.86.0-py3-none-any.whl", hash = "sha256:5d5771fd6227d48aa9d94e72e9d7ab5a995e64bd970f2d17123563869b4b02cc"},
-    {file = "strawberry_graphql_django-0.86.0.tar.gz", hash = "sha256:380326ab2f9a9bf79a66ca7fad8a1c2fe72760f3608d3b39b617213c8b3f3329"},
+    {file = "strawberry_graphql_django-0.86.5-py3-none-any.whl", hash = "sha256:6d2b2860be53b620a642467efe7cf41b481329e65480747af66864503e438e86"},
+    {file = "strawberry_graphql_django-0.86.5.tar.gz", hash = "sha256:0a3675a31f4b1e6515252050400f74809c555349a8c0dd60837cfb7d989efc9f"},
 ]
 
 [package.dependencies]
