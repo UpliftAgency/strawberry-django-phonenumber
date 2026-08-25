@@ -20,14 +20,14 @@ tests = ["mypy (>=1.14.0)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "autoflake"
-version = "2.3.3"
+version = "2.4.0"
 description = "Removes unused imports and unused variables"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "autoflake-2.3.3-py3-none-any.whl", hash = "sha256:a51a3412aff16135ee5b3ec25922459fef10c1f23ce6d6c4977188df859e8b53"},
-    {file = "autoflake-2.3.3.tar.gz", hash = "sha256:c24809541e23999f7a7b0d2faadf15deb0bc04cdde49728a2fd943a0c8055504"},
+    {file = "autoflake-2.4.0-py3-none-any.whl", hash = "sha256:85df69176550d5e070bdf4a12a1bcdad062998ed458b20a605630e74b758c7ce"},
+    {file = "autoflake-2.4.0.tar.gz", hash = "sha256:ef7c496d9bce9d2cef049f24e482d1d3090c37fbd44e5e85dfb00db3c78ee16c"},
 ]
 
 [package.dependencies]
@@ -429,14 +429,14 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-phonenumber-field"
-version = "8.4.0"
+version = "8.5.0"
 description = "An international phone number field for django models."
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "django_phonenumber_field-8.4.0-py3-none-any.whl", hash = "sha256:7a1cb3a6456edb54d879f11ffa0acb227ded08c93b587035d0f28093f0e46511"},
-    {file = "django_phonenumber_field-8.4.0.tar.gz", hash = "sha256:2b83e843dac35eec6a69880a166487235b737a71a1e38c9a52e5ad67d6996083"},
+    {file = "django_phonenumber_field-8.5.0-py3-none-any.whl", hash = "sha256:a6dd71250f7fd0724aad995df01bdb4ac457a65622f120d0d623792fe8283798"},
+    {file = "django_phonenumber_field-8.5.0.tar.gz", hash = "sha256:19c606fda7bb25630c4913f7ac83c1824186ea17e2e4c6dc9aa9373e8f5843c5"},
 ]
 
 [package.dependencies]
@@ -444,6 +444,7 @@ Django = ">=4.2"
 phonenumberslite = {version = ">=7.0.2", optional = true, markers = "extra == \"phonenumberslite\""}
 
 [package.extras]
+babel = ["Babel"]
 phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
@@ -814,14 +815,14 @@ pip = "*"
 
 [[package]]
 name = "pip-audit"
-version = "2.10.0"
+version = "2.10.1"
 description = "A tool for scanning Python environments for known vulnerabilities"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pip_audit-2.10.0-py3-none-any.whl", hash = "sha256:16e02093872fac97580303f0848fa3ad64f7ecf600736ea7835a2b24de49613f"},
-    {file = "pip_audit-2.10.0.tar.gz", hash = "sha256:427ea5bf61d1d06b98b1ae29b7feacc00288a2eced52c9c58ceed5253ef6c2a4"},
+    {file = "pip_audit-2.10.1-py3-none-any.whl", hash = "sha256:99ef3f600a317c1945f1e89e227ef26e1c2d618429b8bd3fa6f4f7c440c4611a"},
+    {file = "pip_audit-2.10.1.tar.gz", hash = "sha256:1eb4565d19ebe5d48996f4b770b4d2b32887e12cb12cfa637f1a064011b55ffc"},
 ]
 
 [package.dependencies]
@@ -840,7 +841,7 @@ tomli-w = ">=1.2.0"
 cov = ["coverage[toml] (>=7.0,!=7.3.3,<8.0)"]
 dev = ["build", "pip-audit[doc,lint,test]"]
 doc = ["pdoc"]
-lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.11)", "types-requests", "types-toml"]
+lint = ["interrogate (>=1.6,<2.0)", "mypy", "ruff (>=0.14)", "types-requests", "types-toml", "typos"]
 test = ["pip-audit[cov]", "pretend", "pytest"]
 
 [[package]]
@@ -893,14 +894,14 @@ testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pre-commit"
-version = "4.6.0"
+version = "4.6.2"
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pre_commit-4.6.0-py2.py3-none-any.whl", hash = "sha256:e2cf246f7299edcabcf15f9b0571fdce06058527f0a06535068a86d38089f29b"},
-    {file = "pre_commit-4.6.0.tar.gz", hash = "sha256:718d2208cef53fdc38206e40524a6d4d9576d103eb16f0fec11c875e7716e9d9"},
+    {file = "pre_commit-4.6.2-py2.py3-none-any.whl", hash = "sha256:e2dde9a75d3bce11bd3831c26d134df00a2803c1d818be6a0383c3dcda25dc4e"},
+    {file = "pre_commit-4.6.2.tar.gz", hash = "sha256:8f5d7bfb021ecdbcd9d49d89847082dd24172ccde534390081a679ad046e2441"},
 ]
 
 [package.dependencies]
@@ -1151,14 +1152,14 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "9.0.3"
+version = "9.1.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9"},
-    {file = "pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c"},
+    {file = "pytest-9.1.1-py3-none-any.whl", hash = "sha256:37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"},
+    {file = "pytest-9.1.1.tar.gz", hash = "sha256:1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"},
 ]
 
 [package.dependencies]
@@ -1175,18 +1176,22 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "requests
 
 [[package]]
 name = "pytest-django"
-version = "4.12.0"
+version = "4.14.0"
 description = "A Django plugin for pytest."
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pytest_django-4.12.0-py3-none-any.whl", hash = "sha256:3ff300c49f8350ba2953b90297d23bf5f589db69545f56f1ec5f8cff5da83e85"},
-    {file = "pytest_django-4.12.0.tar.gz", hash = "sha256:df94ec819a83c8979c8f6de13d9cdfbe76e8c21d39473cfe2b40c9fc9be3c758"},
+    {file = "pytest_django-4.14.0-py3-none-any.whl", hash = "sha256:c533b08d89cc675efcd5398eea270b34547e35f9a3608e2c9748dd88428ea187"},
+    {file = "pytest_django-4.14.0.tar.gz", hash = "sha256:26787dd3f422cfbab8f55b80a776e2edea7a11092cb74e960bef1312515708ef"},
 ]
 
 [package.dependencies]
 pytest = ">=7.0.0"
+
+[package.extras]
+django = ["django (>=5.2)"]
+docs = ["sphinx", "sphinx-rtd-theme"]
 
 [[package]]
 name = "python-dateutil"
@@ -1444,14 +1449,14 @@ doc = ["sphinx"]
 
 [[package]]
 name = "ssort"
-version = "0.16.0"
+version = "0.17.0"
 description = "The python statement sorter"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "ssort-0.16.0-py3-none-any.whl", hash = "sha256:013d57d4a0e4bde896afbcaa1e9e98a6829bf1b63ddcccecfcb7e64336921bba"},
-    {file = "ssort-0.16.0.tar.gz", hash = "sha256:1e7222cf7ffbbb0523d88fe1931a36b0bbd7f478d2964feb25be3621c52a981f"},
+    {file = "ssort-0.17.0-py3-none-any.whl", hash = "sha256:acb57f75cf9521d80a3cf1572ad4cdb969b28d08d8c4c08957c91517c5dd5d93"},
+    {file = "ssort-0.17.0.tar.gz", hash = "sha256:acfb38409476520c3e25541c282f7cef92017900d859f6b12bea48da4334b194"},
 ]
 
 [package.dependencies]
@@ -1471,14 +1476,14 @@ files = [
 
 [[package]]
 name = "strawberry-graphql"
-version = "0.316.0"
+version = "0.324.0"
 description = "A library for creating GraphQL APIs"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "strawberry_graphql-0.316.0-py3-none-any.whl", hash = "sha256:222e16fbbf953f5a1fa75f62bf9a8e95f274180f928f70bec459b566053aa2cb"},
-    {file = "strawberry_graphql-0.316.0.tar.gz", hash = "sha256:bee5ce0e20d522325bd1ed2db186c812c03c2ea7db29f997b35e7d694649820c"},
+    {file = "strawberry_graphql-0.324.0-py3-none-any.whl", hash = "sha256:08c8b3256a1c909c7721f3c1d8e161ac40505ca14991c39d8492898b17e77b6d"},
+    {file = "strawberry_graphql-0.324.0.tar.gz", hash = "sha256:4eb6decf0c33524374f24e07ff6d1915da26655a49fa6f656544c293404e2d35"},
 ]
 
 [package.dependencies]
@@ -1486,17 +1491,17 @@ cross-web = ">=0.6.0"
 graphql-core = ">=3.2.0,<3.4.0"
 packaging = ">=23"
 python-dateutil = ">=2.7"
-typing-extensions = ">=4.5.0"
+typing-extensions = ">=4.14.0"
 
 [package.extras]
 aiohttp = ["aiohttp (>=3.7.4.post0,<4)"]
 apollo-federation = ["protobuf (>=3.20)"]
 asgi = ["python-multipart (>=0.0.7)", "starlette (>=0.18.0)"]
 chalice = ["chalice (>=1.22)"]
-channels = ["asgiref (>=3.2)", "channels (>=3.0.5)"]
+channels = ["asgiref (>=3.2)", "channels (>=4.0.0)", "django (>=5.2)"]
 cli = ["libcst", "pygments (>=2.3)", "python-multipart (>=0.0.7)", "rich (>=12.0.0)", "starlette (>=0.18.0)", "typer (>=0.12.4)", "uvicorn (>=0.11.6)", "websockets (>=15.0.1,<17)"]
 debug = ["libcst", "rich (>=12.0.0)"]
-django = ["asgiref (>=3.2)", "django (>=3.2)"]
+django = ["asgiref (>=3.2)", "django (>=5.2)"]
 fastapi = ["fastapi (>=0.65.2)", "python-multipart (>=0.0.7)"]
 flask = ["flask (>=1.1)"]
 litestar = ["litestar (>=2) ; python_full_version >= \"3.10.0\" and python_full_version < \"4.0.0\""]
@@ -1508,14 +1513,14 @@ sanic = ["sanic (>=20.12.2)"]
 
 [[package]]
 name = "strawberry-graphql-django"
-version = "0.86.0"
+version = "0.87.0"
 description = "Strawberry GraphQL Django extension"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "strawberry_graphql_django-0.86.0-py3-none-any.whl", hash = "sha256:5d5771fd6227d48aa9d94e72e9d7ab5a995e64bd970f2d17123563869b4b02cc"},
-    {file = "strawberry_graphql_django-0.86.0.tar.gz", hash = "sha256:380326ab2f9a9bf79a66ca7fad8a1c2fe72760f3608d3b39b617213c8b3f3329"},
+    {file = "strawberry_graphql_django-0.87.0-py3-none-any.whl", hash = "sha256:2c403d7f77464d477d864391d42cd23246de47e3b60f4856d77424efb3521a77"},
+    {file = "strawberry_graphql_django-0.87.0.tar.gz", hash = "sha256:f1d703b4f79218cd856deed4db4e966020fdebb08e83c32a3eb1566225e57721"},
 ]
 
 [package.dependencies]
